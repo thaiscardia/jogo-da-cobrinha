@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
     <script defer src="/script.js"></script><!-- o defer é o que faz o JS ser carregado no final para evitar bug -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+    </style>
     <title>Snake Game 🐍 </title>
 </head>
 <body>
-    <h1>SNAKE GAME 🐍 </h1>
-    <canvas id="cobra" width="512" height="512"></canvas><!-- canvas é o elemento que trabalha a parte gráfica -->
+    <div class="container">
+        <header>
+            <h1>The snake game 🐍 </h1>
+        </header>
+        <canvas id="cobra" width="512" height="512"></canvas><!-- canvas é o elemento que trabalha a parte gráfica -->
+    </div>
+    <div class="container">
+        <p>Instruções de jogo:</p>
+        <p><img src="./img/setas.png" height="200" width="280"></p>
+        <p>Desenvolvido por Thais Cardia</p>
+    </div>
 </body>
 </html>

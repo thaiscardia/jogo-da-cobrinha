@@ -11,7 +11,6 @@ let food = {
     x: Math.floor(Math.random() * 15 + 1) * box, //criação de numero aleatorio
     y: Math.floor(Math.random() * 15 + 1) * box
 }
-let texto = "GAME OVER"
 
 function criarBG() {
     context.fillStyle = "lightgreen"; /* essa aqui é a cor do contexto */
@@ -41,16 +40,20 @@ function update (event) {
 }
 
 function gameOver(){
-    context.fillStyle = "black";
-    //continuar daqui    
-}
+    clearInterval(jogo); //se a cobra se chocar, o jogo vai parar com o clear interval;
+    let txt = "Game Over."
+        if(confirm("Game Over. Restart?")){
+            window.location.reload();
+        }else{
+            return txt;
+        }
+    }
 
 function iniciarJogo() {
 
-    for(i = 1; i < cobra.length; i++){
-        if (cobra[0].x == cobra[i].x && cobra[0].y == cobra[i].y){
-            clearInterval(jogo); //se a cobra se chocar, o jogo vai parar com o clear interval;
-            gameOver()
+    for(i = 1; i < cobra.length; i++) {
+        if (cobra[0].x == cobra[i].x && cobra[0].y == cobra[i].y) {
+            gameOver();
         }
     }
 
@@ -72,7 +75,7 @@ function iniciarJogo() {
     if(direction == "up") cobraY -= box;
     if(direction == "down") cobraY += box;
 
-    if(cobraX != food.x || cobraY != food.y){ 
+    if(cobraX != food.x || cobraY != food.y) { 
         cobra.pop();
     }else{ //adiciona ao corpo da cobra quando ela come
         food.x = Math.floor(Math.random() * 15 + 1) * box;
